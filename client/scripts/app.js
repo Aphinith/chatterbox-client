@@ -1,6 +1,14 @@
 // YOUR CODE HERE:
 var app = {
-  init: function() {},
+  init: function() {
+    //watch the .userName name and if it is clicked, execute the this.addFriend method
+    // console.log('hi outside of click handler');
+    // $('.username').click(function() {
+    //   if(this === '.username') {
+    //     console.log('hi');
+    //   }
+    // })
+  },
 
   send: function(message) {
 
@@ -41,7 +49,10 @@ var app = {
   },
   
   addMessage: function(message) {
-    $('#chats').prepend('<div>');
+    $('#chats').prepend('<div class="username"></div>');
+    $('.username').on('click', function() {
+      app.addFriend();
+    });
   },
   
   addRoom: function(room) {
