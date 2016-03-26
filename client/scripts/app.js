@@ -1,20 +1,23 @@
 // YOUR CODE HERE:
 $(document).ready(function() { 
-  $('.submit').on('submit', function() {
-    console.log('hi inside click');
-    app.handleSubmit();
+  $('#fetch').on('click', function() {
+    app.fetch();
+    // console.log(message);
   });
+  $('#send .submit').on('submit', function(e) {
+    e.preventDefault();
+    app.handleSubmit();
+  })
 });
 
 var app = {
+
   init: function() {
   },
 
   send: function(message) {
-
     $.ajax({
-      // This is the url you should use to communicate with the parse API server.
-      url: 'https://api.parse.com/1/classes/chatterbox',
+      url: this.server,
       type: 'POST',
       data: JSON.stringify(message),
       contentType: 'application/json',
@@ -31,16 +34,18 @@ var app = {
 
   fetch: function() {
     $.ajax({
-      // This is the url you should use to communicate with the parse API server.
       url: this.server,
       type: 'GET',
       contentType: 'application/json',
+      // console.log(contentType)
       success: function (data) {
-        console.log('chatterbox: Message sent');
+        data: data,
+        console.log(data);
+        console.log('chatterbox: Message recieved');
       },
       error: function (data) {
         // See: https://developer.mozilla.org/en-US/docs/Web/API/console.error
-        console.error('chatterbox: Failed to send message');
+        console.error('chatterbox: Failed to recieve message');
       }
     });
   },
@@ -66,10 +71,11 @@ var app = {
   },
 
   handleSubmit: function() {
-    console.log('handle submit got executed')
+    console.log('handle submit got executed');
   },
 
   server: 'https://api.parse.com/1/classes/chatterbox'
+
 };
 
 
