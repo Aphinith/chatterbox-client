@@ -48,6 +48,10 @@ var app = {
     $('#roomSelect').prepend('<div>');
   },
 
+  addFriend: function(friend) {
+    // should be putting in '#main', each with a class of '.username'
+  },
+
   server: 'https://api.parse.com/1/classes/chatterbox'
 };
 
