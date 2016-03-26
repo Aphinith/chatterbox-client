@@ -1,4 +1,11 @@
 // YOUR CODE HERE:
+$(document).ready(function() { 
+  $('.submit').on('submit', function() {
+    console.log('hi inside click');
+    app.handleSubmit();
+  });
+});
+
 var app = {
   init: function() {
   },
@@ -46,10 +53,6 @@ var app = {
     $('#chats').prepend('<div class="username"></div>');
     $('.username').on('click', function() {
       app.addFriend();
-    });
-    $('.submit').on('submit', function() {
-      console.log('hi inside click');
-      app.handleSubmit();
     });
     console.log('hi outside click');
   },
