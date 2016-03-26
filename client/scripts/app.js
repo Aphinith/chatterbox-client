@@ -41,17 +41,14 @@ var app = {
   },
   
   addMessage: function(message) {
-
-    //get access to the index.html file so we can append the div tag there
-
-
-    console.log('addMessage executed');
-    console.log('this is body:', $('body'))
-    var $div = $('<div class="test"></div>');
-    $('#chats').prepend($div);
+    $('#chats').prepend('<div>');
+  },
+  
+  addRoom: function(room) {
+    $('#roomSelect').prepend('<div>');
+  },
 
   server: 'https://api.parse.com/1/classes/chatterbox'
-}
 };
 
 
