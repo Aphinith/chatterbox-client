@@ -1,13 +1,6 @@
 // YOUR CODE HERE:
 var app = {
   init: function() {
-    //watch the .userName name and if it is clicked, execute the this.addFriend method
-    // console.log('hi outside of click handler');
-    // $('.username').click(function() {
-    //   if(this === '.username') {
-    //     console.log('hi');
-    //   }
-    // })
   },
 
   send: function(message) {
@@ -26,6 +19,7 @@ var app = {
         console.error('chatterbox: Failed to send message');
       }
     });
+
   },
 
   fetch: function() {
@@ -53,6 +47,11 @@ var app = {
     $('.username').on('click', function() {
       app.addFriend();
     });
+    $('.submit').on('submit', function() {
+      console.log('hi inside click');
+      app.handleSubmit();
+    });
+    console.log('hi outside click');
   },
   
   addRoom: function(room) {
@@ -61,6 +60,10 @@ var app = {
 
   addFriend: function(friend) {
     // should be putting in '#main', each with a class of '.username'
+  },
+
+  handleSubmit: function() {
+    console.log('handle submit got executed')
   },
 
   server: 'https://api.parse.com/1/classes/chatterbox'
