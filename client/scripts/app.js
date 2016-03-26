@@ -40,14 +40,10 @@ var app = {
       // console.log(contentType)
       success: function (data) {
         var results = data.results;
-        data: data,
-        console.log('test:', results[0].text);
-        console.log('chatterbox: Message recieved');
-        var message = {
-          username: results[i].username,
-          text: results[i].text,
-          roomname: results[0].roomname
-        };
+        data: data;
+        for (var i = 0; i < results.length; i++) {
+          $('#chats').append('<div>'+results[i].username+'</div>');
+        }
       },
       error: function (data) {
         // See: https://developer.mozilla.org/en-US/docs/Web/API/console.error
