@@ -1,6 +1,7 @@
 // YOUR CODE HERE:
 $(document).ready(function() { 
-  $('#fetch').on('click', function() {
+  $('#fetch').on('click', function(e) {
+    e.preventDefault();
     app.fetch();
     // console.log(message);
   });
@@ -42,7 +43,21 @@ var app = {
         var results = data.results;
         data: data;
         for (var i = 0; i < results.length; i++) {
-          $('#chats').append('<div>'+results[i].username+'</div>');
+          var message = {
+            username: results[i].username,
+            text: results[i].text,
+            roomname: results[i].roomname
+          }
+          //create condition to see if message.text is a script
+            //if it is not a script, run the the code
+          var badScript = document.getElementsByTagName('script');
+          // console.log(.getElementsByTagName('script'));
+
+          if (message.text === badScript) {
+            console.log('found it!')
+          }
+              console.log(message.text)
+          $('#chats').append('<div>'+message.username+'</div>');
         }
       },
       error: function (data) {
