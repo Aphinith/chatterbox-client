@@ -13,30 +13,35 @@
     <script src="scripts/app.js"></script>
   </head>
   <body>
+
     <div id="main">
       <h1>chatterbox</h1>
       <div class=data>
       <button type="button" id="fetch">Get More Messages</button>
-      </div>
-      <form>
-        Enter Message Here:<br>
-        <input type="text"><br>
-        <input type="submit" id="send" class="submit">
-      </form>
+    </div>
+
+    <form>
+      Enter Message Here:<br>
+      <input type="text"><br>
+      <input type="submit" id="send" class="submit">
+    </form>
+      <button type="button" id="clearmessages">Clear Messages</button>
+
       <!-- <div class="messages">Messages</div>  -->
       <!-- Your HTML goes here!       -->
-          <div id="rooms">
+    <div id="rooms">
       Room:
       <select id="roomSelect">
       </select>
     </div>
+
     <form action="#" id="send" method="post">
       <input type="text" name="message" id="message"/>
       <input type="submit" name="submit" class="submit"/>
     </form>
-    <div id="chats"></div>
-  </div>
 
+    <div id="chats"></div>
     </div>
+
   </body>
 </html>
